@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+  "tau2_version": "1.0.1",
+  "tau2_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "attrib_commit": "no-commit-yet",
+  "task_id": "77",
+  "domain": "retail",
+  "agent_model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "agent_model_revision": "grid-session1",
+  "user_model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "user_model_revision": "grid-session1",
+  "agent_quantization": "awq-int4",
+  "user_quantization": "awq-int4",
+  "seed": 0,
+  "condition": "policy_truncated",
+  "condition_param": null,
+  "temperature": 0.0,
+  "gpu_name": "Tesla T4",
+  "timestamp": "2026-08-17T16:24:14.247666",
+  "max_steps": 200,
+  "status": "completed",
+  "termination_reason": "normal",
+  "error": null,
+  "task_success": true,
+  "reward": 1.0,
+  "reward_info_note": {
+    "env": null,
+    "nl": {
+      "note": "No nl_assertions to evaluate"
+    },
+    "communicate": {
+      "note": "No communicate_info to evaluate"
+    },
+    "action": null
+  },
+  "n_turns": 64,
+  "read": {
+    "count": 0,
+    "correct": 0
+  },
+  "write": {
+    "count": 1,
+    "correct": 1
+  },
+  "wall_clock_seconds": 193.73216526299984,
+  "agent_cost": 0.0,
+  "user_cost": 0.0,
+  "transcript_path": "transcripts/77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0.json"
+}

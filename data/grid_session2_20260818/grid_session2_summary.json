@@ -1,0 +1,447 @@
+{
+  "gpu_name": "Tesla T4",
+  "attrib_commit": "no-commit-yet",
+  "session": 2,
+  "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "tau2_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "max_steps": 200,
+  "n_completed": 57,
+  "n_failed": 3,
+  "n_skipped": 0,
+  "episodes": [
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 46,
+      "wall_clock_seconds": 77.27161002159119
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 38,
+      "wall_clock_seconds": 68.6511218547821
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 30,
+      "wall_clock_seconds": 71.62890148162842
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 58,
+      "wall_clock_seconds": 119.42795014381409
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 205,
+      "wall_clock_seconds": 968.5061049461365
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 63,
+      "wall_clock_seconds": 161.25013828277588
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 36,
+      "wall_clock_seconds": 43.155585050582886
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 38,
+      "wall_clock_seconds": 58.81837248802185
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 58,
+      "wall_clock_seconds": 166.39097356796265
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "timeout",
+      "termination_reason": "harness_crash",
+      "n_turns": 0,
+      "wall_clock_seconds": 2175.8090963363647
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 205,
+      "wall_clock_seconds": 862.3417053222656
+    },
+    {
+      "run_id": "46__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 63,
+      "wall_clock_seconds": 155.6539340019226
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 29,
+      "wall_clock_seconds": 80.72403883934021
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 16,
+      "wall_clock_seconds": 23.27751922607422
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 46,
+      "wall_clock_seconds": 77.42044925689697
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 44,
+      "wall_clock_seconds": 79.35582399368286
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 28,
+      "wall_clock_seconds": 56.96016764640808
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 80,
+      "wall_clock_seconds": 166.3711919784546
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 23,
+      "wall_clock_seconds": 47.34382176399231
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 22,
+      "wall_clock_seconds": 24.66911554336548
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 46,
+      "wall_clock_seconds": 63.90691685676575
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 30,
+      "wall_clock_seconds": 45.07263398170471
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 82,
+      "wall_clock_seconds": 315.97529339790344
+    },
+    {
+      "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 203,
+      "wall_clock_seconds": 350.55989813804626
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 29,
+      "wall_clock_seconds": 38.233970403671265
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 20,
+      "wall_clock_seconds": 34.86579895019531
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 204,
+      "wall_clock_seconds": 336.2602233886719
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 38,
+      "wall_clock_seconds": 101.78819251060486
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "context_window_exceeded",
+      "n_turns": 0,
+      "wall_clock_seconds": 745.7364621162415
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 48,
+      "wall_clock_seconds": 76.93473029136658
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 32,
+      "wall_clock_seconds": 39.295692920684814
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 54,
+      "wall_clock_seconds": 102.67088174819946
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 1385.4167358875275
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 34,
+      "wall_clock_seconds": 79.9727213382721
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "context_window_exceeded",
+      "n_turns": 0,
+      "wall_clock_seconds": 290.79670691490173
+    },
+    {
+      "run_id": "64__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 90,
+      "wall_clock_seconds": 170.97090911865234
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 44,
+      "wall_clock_seconds": 133.04229545593262
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 28,
+      "wall_clock_seconds": 37.31090950965881
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 46,
+      "wall_clock_seconds": 134.9358081817627
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 62,
+      "wall_clock_seconds": 91.65272402763367
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "timeout",
+      "termination_reason": "harness_crash",
+      "n_turns": 0,
+      "wall_clock_seconds": 2116.7155792713165
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 72,
+      "wall_clock_seconds": 113.40602040290833
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 52,
+      "wall_clock_seconds": 203.0238492488861
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 28,
+      "wall_clock_seconds": 34.80396580696106
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 50,
+      "wall_clock_seconds": 138.49554681777954
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 62,
+      "wall_clock_seconds": 88.25355863571167
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "timeout",
+      "termination_reason": "harness_crash",
+      "n_turns": 0,
+      "wall_clock_seconds": 2115.6953716278076
+    },
+    {
+      "run_id": "102__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 76,
+      "wall_clock_seconds": 131.3907573223114
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 47,
+      "wall_clock_seconds": 91.34369087219238
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 202,
+      "wall_clock_seconds": 513.705358505249
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 1156.515116930008
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 38,
+      "wall_clock_seconds": 63.773833990097046
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 46,
+      "wall_clock_seconds": 94.44153809547424
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 40,
+      "wall_clock_seconds": 88.09712529182434
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 47,
+      "wall_clock_seconds": 81.29708433151245
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 55,
+      "wall_clock_seconds": 117.50877094268799
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 984.547877073288
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 1175.0936465263367
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "context_window_exceeded",
+      "n_turns": 0,
+      "wall_clock_seconds": 872.9703547954559
+    },
+    {
+      "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 54,
+      "wall_clock_seconds": 126.75807690620422
+    }
+  ],
+  "agent_server_up": true,
+  "user_server_up": true,
+  "session_task_ids": [
+    "46",
+    "107",
+    "64",
+    "102",
+    "110"
+  ],
+  "total_wall_clock_seconds": 20558.517485380173,
+  "peak_vram_mib_per_gpu": {
+    "0": 12343,
+    "1": 12269
+  }
+}

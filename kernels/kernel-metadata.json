@@ -1,0 +1,14 @@
+{
+  "id": "abhiprd2000/attrib-pilot-run",
+  "title": "attrib-pilot-run",
+  "code_file": "pilot_run.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": ["abhiprd2000/attrib-code"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

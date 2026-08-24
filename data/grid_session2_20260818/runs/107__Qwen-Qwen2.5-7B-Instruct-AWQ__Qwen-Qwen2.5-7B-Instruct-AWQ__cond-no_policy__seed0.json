@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "run_id": "107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+  "tau2_version": "1.0.1",
+  "tau2_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "attrib_commit": "no-commit-yet",
+  "task_id": "107",
+  "domain": "retail",
+  "agent_model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "agent_model_revision": "grid-session2",
+  "user_model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "user_model_revision": "grid-session2",
+  "agent_quantization": "awq-int4",
+  "user_quantization": "awq-int4",
+  "seed": 0,
+  "condition": "no_policy",
+  "condition_param": null,
+  "temperature": 0.0,
+  "gpu_name": "Tesla T4",
+  "timestamp": "2026-08-18T17:13:41.998353",
+  "max_steps": 200,
+  "status": "completed",
+  "termination_reason": "normal",
+  "error": null,
+  "task_success": false,
+  "reward": 0.0,
+  "reward_info_note": {
+    "error": "evaluation crashed: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable"
+  },
+  "n_turns": 29,
+  "read": {
+    "count": 0,
+    "correct": 0
+  },
+  "write": {
+    "count": 0,
+    "correct": 0
+  },
+  "wall_clock_seconds": 80.32517850400018,
+  "agent_cost": 0.0,
+  "user_cost": 0.0,
+  "transcript_path": "transcripts/107__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0.json"
+}

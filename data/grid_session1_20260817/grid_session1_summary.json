@@ -1,0 +1,617 @@
+{
+  "gpu_name": "Tesla T4",
+  "attrib_commit": "no-commit-yet",
+  "session": 1,
+  "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "tau2_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "max_steps": 200,
+  "n_completed": 81,
+  "n_failed": 3,
+  "n_skipped": 0,
+  "episodes": [
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 102,
+      "wall_clock_seconds": 272.2488658428192
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 14,
+      "wall_clock_seconds": 28.423829555511475
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 24,
+      "wall_clock_seconds": 41.86379790306091
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 1131.0612995624542
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 78,
+      "wall_clock_seconds": 182.83414769172668
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 58,
+      "wall_clock_seconds": 106.33097910881042
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 718.7762639522552
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 14,
+      "wall_clock_seconds": 20.879229307174683
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 24,
+      "wall_clock_seconds": 31.239778518676758
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 36,
+      "wall_clock_seconds": 84.6345100402832
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 38,
+      "wall_clock_seconds": 110.10507082939148
+    },
+    {
+      "run_id": "93__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 60,
+      "wall_clock_seconds": 126.45429468154907
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 27,
+      "wall_clock_seconds": 48.536020278930664
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 685.1125626564026
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 39,
+      "wall_clock_seconds": 55.07563757896423
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 50,
+      "wall_clock_seconds": 80.99815917015076
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 22,
+      "wall_clock_seconds": 52.249887228012085
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 47,
+      "wall_clock_seconds": 79.39309406280518
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 56,
+      "wall_clock_seconds": 131.7478473186493
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 409.24980759620667
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 1138.1645505428314
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 50,
+      "wall_clock_seconds": 73.27114629745483
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 56,
+      "wall_clock_seconds": 159.19007754325867
+    },
+    {
+      "run_id": "43__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 202,
+      "wall_clock_seconds": 952.0310521125793
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 54,
+      "wall_clock_seconds": 114.017573595047
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 1207.592485666275
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 46,
+      "wall_clock_seconds": 87.52394509315491
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 34,
+      "wall_clock_seconds": 79.39865612983704
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 64,
+      "wall_clock_seconds": 102.17432832717896
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 18,
+      "wall_clock_seconds": 37.723259925842285
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 60,
+      "wall_clock_seconds": 181.4985659122467
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 1043.1065075397491
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 34,
+      "wall_clock_seconds": 58.25421380996704
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 40,
+      "wall_clock_seconds": 73.35031986236572
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 64,
+      "wall_clock_seconds": 91.35418581962585
+    },
+    {
+      "run_id": "98__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 46,
+      "wall_clock_seconds": 103.09198474884033
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 32,
+      "wall_clock_seconds": 47.47942042350769
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 26,
+      "wall_clock_seconds": 32.714311838150024
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 64,
+      "wall_clock_seconds": 194.065514087677
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 48,
+      "wall_clock_seconds": 110.2027096748352
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 64,
+      "wall_clock_seconds": 185.82453989982605
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 436.8471176624298
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 46,
+      "wall_clock_seconds": 63.99793815612793
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 34,
+      "wall_clock_seconds": 55.40885543823242
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 54,
+      "wall_clock_seconds": 114.99939250946045
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 1700.8020689487457
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 384.2692120075226
+    },
+    {
+      "run_id": "77__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 387.6933023929596
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 46,
+      "wall_clock_seconds": 139.58549165725708
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 37,
+      "wall_clock_seconds": 60.06063222885132
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 440.3274712562561
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 52,
+      "wall_clock_seconds": 102.43980813026428
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 98,
+      "wall_clock_seconds": 128.5702109336853
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 28,
+      "wall_clock_seconds": 43.62538981437683
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 44,
+      "wall_clock_seconds": 79.21766805648804
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 41,
+      "wall_clock_seconds": 99.63532090187073
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 40,
+      "wall_clock_seconds": 91.08026123046875
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 54,
+      "wall_clock_seconds": 93.24154281616211
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 82,
+      "wall_clock_seconds": 130.26647782325745
+    },
+    {
+      "run_id": "66__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 52,
+      "wall_clock_seconds": 136.35944271087646
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 58,
+      "wall_clock_seconds": 148.13673901557922
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 14,
+      "wall_clock_seconds": 22.6657874584198
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 56,
+      "wall_clock_seconds": 145.48519802093506
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 54,
+      "wall_clock_seconds": 145.90409660339355
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 58,
+      "wall_clock_seconds": 94.28695797920227
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 30,
+      "wall_clock_seconds": 90.49166774749756
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 60,
+      "wall_clock_seconds": 156.88705039024353
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 14,
+      "wall_clock_seconds": 20.802136182785034
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "error",
+      "termination_reason": "harness_crash",
+      "n_turns": 0,
+      "wall_clock_seconds": 1867.1923706531525
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 42,
+      "wall_clock_seconds": 96.13224077224731
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 74,
+      "wall_clock_seconds": 152.26546573638916
+    },
+    {
+      "run_id": "94__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 877.1251990795135
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 50,
+      "wall_clock_seconds": 123.3410415649414
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed0",
+      "status": "error",
+      "termination_reason": "harness_crash",
+      "n_turns": 0,
+      "wall_clock_seconds": 4393.149482727051
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 204,
+      "wall_clock_seconds": 940.3787503242493
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 44,
+      "wall_clock_seconds": 2273.462848186493
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 26,
+      "wall_clock_seconds": 61.83697509765625
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 32,
+      "wall_clock_seconds": 64.42977929115295
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-full_context__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "wall_clock_seconds": 3174.8727066516876
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-no_policy__seed1",
+      "status": "error",
+      "termination_reason": "harness_crash",
+      "n_turns": 0,
+      "wall_clock_seconds": 4278.672736644745
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-policy_truncated__seed1",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 204,
+      "wall_clock_seconds": 908.9408557415009
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-schema_names_only__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 44,
+      "wall_clock_seconds": 2273.4661269187927
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 26,
+      "wall_clock_seconds": 61.85535764694214
+    },
+    {
+      "run_id": "4__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 32,
+      "wall_clock_seconds": 64.35600090026855
+    }
+  ],
+  "agent_server_up": true,
+  "user_server_up": true,
+  "session_task_ids": [
+    "93",
+    "43",
+    "98",
+    "77",
+    "66",
+    "94",
+    "4"
+  ],
+  "total_wall_clock_seconds": 37784.094536066055,
+  "peak_vram_mib_per_gpu": {
+    "0": 12343,
+    "1": 12269
+  }
+}

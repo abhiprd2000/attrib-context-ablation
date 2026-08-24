@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+
+# --- data/ ---
+# Keep: JSON RunRecords (paper evidence, small), summary JSONs, coverage/attrition CSVs.
+# Ignore: transcripts (large text), vLLM logs, VRAM timelines.
+data/*/transcripts/
+data/*/*.log
+data/*/*.txt
+data/*/vram_timeline_*.csv
+
+# --- tables/ ---
+# All CSVs in tables/ are tracked (analysis output + design-justification artifacts).
+
+# --- misc ---
+EXPERIMENTS.md

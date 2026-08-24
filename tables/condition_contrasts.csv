@@ -1,0 +1,5 @@
+condition,n_pairs,mean_accuracy_control,mean_accuracy_condition,mean_diff_control_minus_condition,p_raw,p_holm,holm_significant
+no_policy,3,0.0,0.0,0.0,1.0,1.0,False
+policy_truncated,3,0.0,0.3333333333333333,-0.3333333333333333,1.0,1.0,False
+schema_names_only,4,0.03125,0.03125,0.0,1.0,1.0,False
+system_minimized,3,0.06666666666666667,0.06666666666666667,0.0,1.0,1.0,False

@@ -1,0 +1,86 @@
+{
+  "gpu_name": "Tesla T4",
+  "attrib_commit": "no-commit-yet",
+  "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "quantization": "awq",
+  "max_model_len": 32768,
+  "tau2_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "max_steps": 200,
+  "conditions": {
+    "full_context": {
+      "run_id": "pilot_93__full_context__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 102,
+      "recorded_wall_clock_seconds": 262.4143639460001,
+      "measured_wall_clock_seconds": 262.5130970478058,
+      "task_success": false,
+      "action_accuracy": null,
+      "error": null
+    },
+    "no_policy": {
+      "run_id": "pilot_93__no_policy__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 14,
+      "recorded_wall_clock_seconds": 27.12778411299996,
+      "measured_wall_clock_seconds": 27.46216130256653,
+      "task_success": false,
+      "action_accuracy": 0.0,
+      "error": null
+    },
+    "policy_truncated": {
+      "run_id": "pilot_93__policy_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "normal",
+      "n_turns": 24,
+      "recorded_wall_clock_seconds": 39.727755073000026,
+      "measured_wall_clock_seconds": 40.06732416152954,
+      "task_success": false,
+      "action_accuracy": 0.0,
+      "error": null
+    },
+    "schema_names_only": {
+      "run_id": "pilot_93__schema_names_only__seed0",
+      "status": "completed",
+      "termination_reason": "max_turns",
+      "n_turns": 201,
+      "recorded_wall_clock_seconds": 1093.184850478,
+      "measured_wall_clock_seconds": 1093.2986254692078,
+      "task_success": false,
+      "action_accuracy": null,
+      "error": null
+    },
+    "history_truncated": {
+      "run_id": "pilot_93__history_truncated__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 78,
+      "recorded_wall_clock_seconds": 174.35391543100013,
+      "measured_wall_clock_seconds": 174.43425583839417,
+      "task_success": false,
+      "action_accuracy": null,
+      "error": null
+    },
+    "system_minimized": {
+      "run_id": "pilot_93__system_minimized__seed0",
+      "status": "completed",
+      "termination_reason": "agent_error",
+      "n_turns": 58,
+      "recorded_wall_clock_seconds": 101.42747530800034,
+      "measured_wall_clock_seconds": 101.49976348876953,
+      "task_success": false,
+      "action_accuracy": null,
+      "error": null
+    }
+  },
+  "agent_server_up": true,
+  "user_server_up": true,
+  "task_id": "93",
+  "seed": 0,
+  "total_wall_clock_seconds": 1894.46550989151,
+  "peak_vram_mib_per_gpu": {
+    "0": 12343,
+    "1": 12269
+  }
+}

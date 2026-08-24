@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1",
+  "tau2_version": "1.0.1",
+  "tau2_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "attrib_commit": "no-commit-yet",
+  "task_id": "110",
+  "domain": "retail",
+  "agent_model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "agent_model_revision": "grid-session2",
+  "user_model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "user_model_revision": "grid-session2",
+  "agent_quantization": "awq-int4",
+  "user_quantization": "awq-int4",
+  "seed": 1,
+  "condition": "history_truncated",
+  "condition_param": "3",
+  "temperature": 0.0,
+  "gpu_name": "Tesla T4",
+  "timestamp": "2026-08-18T21:29:41.012593",
+  "max_steps": 200,
+  "status": "completed",
+  "termination_reason": "agent_error",
+  "error": null,
+  "task_success": false,
+  "reward": 0.0,
+  "reward_info_note": {
+    "note": "Simulation terminated prematurely. Termination reason: too_many_errors"
+  },
+  "n_turns": 54,
+  "read": {
+    "count": 0,
+    "correct": 0
+  },
+  "write": {
+    "count": 0,
+    "correct": 0
+  },
+  "wall_clock_seconds": 126.6842729279997,
+  "agent_cost": 0.0,
+  "user_cost": 0.0,
+  "transcript_path": "transcripts/110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-history_truncated-3__seed1.json"
+}

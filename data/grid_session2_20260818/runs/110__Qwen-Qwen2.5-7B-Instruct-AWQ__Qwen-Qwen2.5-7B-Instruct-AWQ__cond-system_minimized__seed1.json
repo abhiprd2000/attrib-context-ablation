@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "run_id": "110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1",
+  "tau2_version": "1.0.1",
+  "tau2_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "attrib_commit": "no-commit-yet",
+  "task_id": "110",
+  "domain": "retail",
+  "agent_model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "agent_model_revision": "grid-session2",
+  "user_model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "user_model_revision": "grid-session2",
+  "agent_quantization": "awq-int4",
+  "user_quantization": "awq-int4",
+  "seed": 1,
+  "condition": "system_minimized",
+  "condition_param": null,
+  "temperature": 0.0,
+  "gpu_name": "Tesla T4",
+  "timestamp": "2026-08-18T21:27:34Z",
+  "max_steps": 200,
+  "status": "completed",
+  "termination_reason": "context_window_exceeded",
+  "error": null,
+  "task_success": false,
+  "reward": 0.0,
+  "reward_info_note": {
+    "note": "Context window exceeded (litellm.exceptions.ContextWindowExceededError, uncaught by tau2): litellm.ContextWindowExceededError: litellm.BadRequestError: ContextWindowExceededError: OpenAIException - This model's maximum context length is 32768 tokens. However, you requested 0 output tokens and your prompt contains at least 32769 input tokens, for a total of at least 32769 tokens. Please reduce the length of the input prompt or the number of requested output tokens. (parameter=input_tokens, value=32769)"
+  },
+  "n_turns": 0,
+  "read": {
+    "count": 0,
+    "correct": 0
+  },
+  "write": {
+    "count": 0,
+    "correct": 0
+  },
+  "wall_clock_seconds": null,
+  "agent_cost": null,
+  "user_cost": null,
+  "transcript_path": "transcripts/110__Qwen-Qwen2.5-7B-Instruct-AWQ__Qwen-Qwen2.5-7B-Instruct-AWQ__cond-system_minimized__seed1.json"
+}

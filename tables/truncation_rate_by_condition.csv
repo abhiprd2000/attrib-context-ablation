@@ -1,0 +1,7 @@
+condition,n_completed,n_truncated,truncation_rate
+full_context,23,3,0.13043478260869565
+no_policy,22,4,0.18181818181818182
+policy_truncated,23,8,0.34782608695652173
+schema_names_only,24,3,0.125
+history_truncated,24,2,0.08333333333333333
+system_minimized,22,6,0.2727272727272727
