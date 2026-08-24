@@ -1621,3 +1621,58 @@ merely suggested by the actual significance test.
 **No GPU run. No grid re-cut. No frozen sections edited** (only `LIMITATIONS`, which
 is explicitly a disclosure section, not frozen - see item 2). No git commits.
 Snapshot follows, then stop.
+
+## CAN CLAIM / CANNOT CLAIM (added 2026-08-24, structured lists)
+
+### CAN CLAIM
+
+- The harness, conditions, grounding-rate algorithm, and significance-test plumbing
+  work end to end. [tables/grounding_condition_contrasts.csv — the frozen primary
+  test produced real p-values for all 5 conditions, zero errors]
+- The grid is complete: 12 tasks x 2 seeds x 6 conditions = 144 triples, 138
+  completed. [PROGRESS.md 2026-08-23 coverage check; data/grid_session1_20260817/runs/
+  and data/grid_session2_20260818/runs/]
+- The attrition mechanism (agent_error/max_turns/context_window_exceeded rates
+  varying by condition) is real, large, and already disclosed. [tables/
+  agent_error_rate_by_condition.csv, tables/truncation_rate_by_condition.csv —
+  attrition ranges 54.2%-83.3%, 29.1pp spread, >2x the 10pp confound threshold]
+- The evaluator.py:119-129 outcome-selection gate causes action_accuracy to be
+  undefined for any non-agent_stop/user_stop termination — this is differential
+  attrition, not a floor. [tables/condition_contrasts.csv — history_truncated has
+  0 pairs (1 defined cell, none shared with full_context); defined-cell counts:
+  full_context 7/24, no_policy 8/24, policy_truncated 8/24, schema_names_only
+  4/24, history_truncated 1/24, system_minimized 3/24]
+- The selection-artifact check (correlation between episode length and grounded
+  rate) does NOT support a short-episode-inflation explanation. [PROGRESS.md
+  2026-08-23 item 1a — FLAT r=+0.034 vs n_turns, r=+0.363 vs total_tool_calls;
+  CONDITIONAL r=+0.021 vs n_turns, r=+0.153 vs total_tool_calls; all positive or
+  flat, none negative]
+- The CPU-verified payload dump confirms each condition strips exactly what it
+  claims (no cross-condition leakage). [tables/condition_payload_dump_20tasks.csv]
+- No condition clears the 20pp practical-effect threshold under any of the three
+  crash-handling views. [PROGRESS.md 2026-08-23 item 4b — largest point estimate:
+  history_truncated +12.2pp best-case, well short of 20pp]
+
+### CANNOT CLAIM
+
+- That any context-ablation condition is load-bearing or inert for grounding, per
+  the frozen falsification criterion — zero conditions reach Holm significance.
+  [tables/grounding_condition_contrasts.csv — smallest p_holm=0.235 (no_policy)]
+- The primary grounding-rate result in isolation, because attrition is confounded
+  at >2.5x the pre-registered threshold. [tables/agent_error_rate_by_condition.csv
+  (max pairwise gap 53.4pp) and tables/truncation_rate_by_condition.csv (max
+  pairwise gap 26.4pp) — both exceed the 10pp confound threshold from
+  analyze.py:check_agent_error_confound() and analyze.py:check_truncation_-
+  confound()]
+- action_accuracy as a finding metric — undefined for the vast majority of cells
+  (137 of 144 lack a defined value in at least one condition of a pair).
+  [tables/condition_contrasts.csv — max 4 pairs; tables/condition_contrasts_-
+  normal_only.csv — identical; tables/condition_contrasts_excl_truncated.csv —
+  identical]
+- That the 20pp MDE is tight enough to detect a real effect if one exists at a
+  smaller scale — it is not. The MDE rests on BASE_SKILL_GROUNDED=0.611 from one
+  pilot episode (task 93, full_context), n=1. [ANALYSIS_PLAN.md LIMITATIONS section;
+  src/tables/detectability_grounding_12t2s.csv shows 87% power only at delta=0.2]
+- The normal-only grounding rates as reliable per-condition estimates — two
+  conditions have n_in_avg < 5. [PROGRESS.md 2026-08-23 item 1c — history_truncated
+  n=2, system_minimized n=3]
