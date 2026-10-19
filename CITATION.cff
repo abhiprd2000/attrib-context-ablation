@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Ablate-and-Measure Breaks When the Measurement Depends on the Ablation"
+authors:
+  - family-names: Prasad
+    given-names: Abhimanyu
+year: 2026
+url: "https://github.com/abhiprd2000/attrib-context-ablation"
+preferred-citation:
+  type: conference-paper
+  title: "Ablate-and-Measure Breaks When the Measurement Depends on the Ablation"
+  authors:
+    - family-names: Prasad
+      given-names: Abhimanyu
+  year: 2026
+  conference:
+    name: "ATTRIB 2026, NeurIPS 2026 Workshop"
