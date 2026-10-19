@@ -1,7 +1,7 @@
-# Results for paper — ATTRIB context-ablation study
+# Results for paper - ATTRIB context-ablation study
 
 All numbers below come from files that exist on disk. Source file noted per entry.
-One decimal place max. No interpretation — see PROGRESS.md for narrative.
+One decimal place max. No interpretation - see PROGRESS.md for narrative.
 
 ## Design
 
@@ -69,7 +69,7 @@ a defined rate. Positive "increase" = worse grounding than full_context.
 
 | condition | ungrounded_rate | n_in_avg (of 24) | increase vs full_context |
 |---|---|---|---|
-| full_context | 71.1% | 22 | — (control) |
+| full_context | 71.1% | 22 | - (control) |
 | no_policy | 71.7% | 12 | +0.6pp |
 | policy_truncated | 72.6% | 22 | +1.5pp |
 | schema_names_only | 73.2% | 20 | +2.0pp |
@@ -78,7 +78,7 @@ a defined rate. Positive "increase" = worse grounding than full_context.
 
 Source: computed by src/grounding.py:average_by_condition() over all 144 RunRecord
 files in data/grid_session1_20260817/runs/ and data/grid_session2_20260818/runs/.
-Not stored in a table CSV — numbers are from PROGRESS.md 2026-08-23 item 4a.
+Not stored in a table CSV - numbers are from PROGRESS.md 2026-08-23 item 4a.
 
 ## Grounded-rate contrast vs full_context (paired permutation test, Holm-corrected)
 
@@ -114,18 +114,42 @@ system_minimized=5. (a) excludes crashed; (b) imputes crashed as 100% ungrounded
 
 ## action_accuracy: defined-cell counts
 
-| condition | defined (of 24) | undefined |
-|---|---|---|
-| full_context | 7 | 16 |
-| no_policy | 8 | 14 |
-| policy_truncated | 8 | 15 |
-| schema_names_only | 4 | 20 |
-| history_truncated | 1 | 23 |
-| system_minimized | 3 | 19 |
+| condition | scored | not reached | evaluation failed |
+|---|---|---|---|
+| no_policy | 8 | 13 | 3 |
+| policy_truncated | 8 | 13 | 3 |
+| full_context | 7 | 13 | 4 |
+| schema_names_only | 4 | 14 | 6 |
+| system_minimized | 3 | 20 | 1 |
+| history_truncated | 1 | 19 | 4 |
 
-Source: PROGRESS.md 2026-08-23 item 4c, derived from RunRecord.action_accuracy
-across all 144 records. Undefined = termination_reason != agent_stop/user_stop
-(evaluator gate at tau2/evaluator/evaluator.py:119-129).
+Source: Recomputed from `reward_info_note` across all 144 RunRecord files in
+data/grid_session1_20260817/runs/ and data/grid_session2_20260818/runs/.
+Categories: scored = note contains "No nl_assertions to evaluate"; evaluation
+failed = note contains "AuthenticationError"; not reached = everything else
+(e.g. too_many_errors, max_steps, or empty/missing note).
+
+Regeneration snippet:
+```python
+import json, os
+from collections import defaultdict
+counts = defaultdict(lambda: {"scored": 0, "auth_error": 0, "other": 0})
+for d in ["data/grid_session1_20260817/runs", "data/grid_session2_20260818/runs"]:
+    for f in sorted(os.listdir(d)):
+        if not f.endswith(".json"): continue
+        rec = json.load(open(os.path.join(d, f)))
+        cond = rec.get("condition", "unknown")
+        note = rec.get("reward_info_note", "") or ""
+        if not isinstance(note, str): note = str(note)
+        if "No nl_assertions to evaluate" in note: counts[cond]["scored"] += 1
+        elif "AuthenticationError" in note: counts[cond]["auth_error"] += 1
+        else: counts[cond]["other"] += 1
+for c in ["full_context","no_policy","policy_truncated","schema_names_only",
+           "history_truncated","system_minimized"]:
+    d = counts[c]
+    print("{}: scored={} not_reached={} eval_failed={}".format(
+        c, d["scored"], d["other"], d["auth_error"]))
+```
 
 ## action_accuracy contrast (paired permutation test)
 
@@ -137,7 +161,7 @@ across all 144 records. Undefined = termination_reason != agent_stop/user_stop
 | system_minimized | 3 | 0.067 | 0.067 | 0.000 | 1.000 | 1.000 | No |
 
 Source: [tables/condition_contrasts.csv]
-Note: history_truncated absent — only 1 defined cell, no shared (task_id, seed) key
+Note: history_truncated absent - only 1 defined cell, no shared (task_id, seed) key
 with full_context survives pairing.
 
 ## action_accuracy: normal-terminations-only contrast
@@ -207,7 +231,7 @@ on the first turn (nothing to truncate yet).
 
 tau2/evaluator/evaluator.py:119-129: if termination_reason not in
 {AGENT_STOP, USER_STOP}, returns RewardInfo(reward=0.0, reward_basis=None)
-immediately — ActionEvaluator.calculate_reward() is never reached. This causes
+immediately - ActionEvaluator.calculate_reward() is never reached. This causes
 action_accuracy to be undefined (None) for any episode ending via agent_error,
 max_turns, or context_window_exceeded. Defined-cell counts above confirm
 differential attrition: history_truncated has 1/24 defined, full_context has 7/24.
