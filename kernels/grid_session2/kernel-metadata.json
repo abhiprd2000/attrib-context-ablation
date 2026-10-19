@@ -1,5 +1,5 @@
 {
-  "id": "abhiprd20/attrib-grid-session2",
+  "id": "abhiprd2000/attrib-grid-session2",
   "title": "attrib-grid-session2",
   "code_file": "grid_run.py",
   "language": "python",
@@ -8,7 +8,7 @@
   "enable_gpu": true,
   "machine_shape": "NvidiaTeslaT4",
   "enable_internet": true,
-  "dataset_sources": ["abhiprd20/attrib-code"],
+  "dataset_sources": ["abhiprd2000/attrib-code"],
   "competition_sources": [],
   "kernel_sources": []
 }

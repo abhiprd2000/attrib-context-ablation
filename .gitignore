@@ -14,3 +14,7 @@ data/*/vram_timeline_*.csv
 
 # --- misc ---
 EXPERIMENTS.md
+
+# --- misc build/cache ---
+.pytest_cache/
+*.bundle

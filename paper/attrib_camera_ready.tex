@@ -1,0 +1,459 @@
+\documentclass{article}
+
+% Requires neurips_2026.sty from the ATTRIB CFP template link, in this directory.
+\PassOptionsToPackage{square,numbers}{natbib}
+\usepackage[dblblindworkshop,final]{neurips_2026}
+\workshoptitle{Attributing Model Behavior at Scale: Data Attribution and Provenance}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{placeins}
+
+\title{Ablate-and-Measure Breaks When the Measurement Depends on the Ablation}
+
+\author{%
+  Abhimanyu Prasad \\
+  \texttt{abhiprd2000@gmail.com}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Attribution methods are validated by ablation: remove a component, re-measure model
+behavior, and check whether the predicted change occurred. This loop assumes the
+measurement is available whether or not the ablation was applied. On agentic
+benchmarks that assumption fails. Per-episode metrics are defined only for episodes
+that reach a scoreable state, and ablations change how often episodes get there. We
+document this with a 144-episode context-ablation study on $\tau^2$-bench that we could
+not interpret. The fraction of episodes yielding a defined grounding rate ranges from
+50.0\% to 91.7\% across conditions; for the benchmark's own action-level score it
+ranges from 4.2\% to 33.3\%. Because paired testing retains only cells defined in both
+arms, our \emph{control} condition's measured rate ranges from 0.096 to 0.304 depending
+on which treatment it is compared against, a 21-point swing in a condition that never
+changed, exceeding the effect the study was powered to detect. One treatment reverses
+sign between two defensible analyses of the same episodes. We report this as a failed
+experiment with a transferable lesson: as data attribution extends to agentic
+behaviors, the metrics being predicted are exactly the outcome-gated kind that breaks
+this loop, and four cheap diagnostics reveal whether it is happening.
+\end{abstract}
+
+\section{The claim}
+
+Contributive attribution asks which data caused a model behavior, and the standard way
+to check an attribution method is counterfactual: remove the implicated data, retrain
+or ablate, measure the behavior, and see whether the method predicted the change.
+Leave-one-out correlation \citep{koh2017influence}, datamodels
+\citep{ilyas2022datamodels}, and the linear datamodeling score \citep{park2023trak} all
+score a method by how well it predicts a model output function $f$ under perturbations
+of the training set.
+
+The construction has a silent precondition: it presumes $f$ is defined on every
+perturbed run. For a next-token probability or an accuracy on a fixed test set this is
+unremarkable, since the metric exists for every input by construction.
+
+It stops being unremarkable when the measured behavior is agentic. A tool-using agent
+produces a score only if its episode terminates in a state the evaluator will score.
+Episodes that exhaust a step budget, accumulate tool errors, or overflow a context
+window yield no measurement at all. They are undefined, not zero. And whether an
+episode reaches a scoreable state is itself affected by the ablation.
+
+When that happens the two arms are no longer the same population. The analysis
+conditions on an outcome downstream of the treatment, which is conditioning on a
+collider \citep{elwert2014endogenous}. Our contribution is not to name the phenomenon
+but to show, with measurements, that it is severe enough in agentic evaluation to
+invert a conclusion, and to propose what to report so that readers can see it.
+
+We arrived here by failing. We set out to attribute tool-call failures to parts of an
+agent's context, ran the full grid, and could not interpret the result. We think the
+failure is more useful than the experiment would have been.
+
+\section{What we ran}
+
+$\tau^2$-bench \citep{barres2025tau2}, retail domain, pinned at the v1.0.1 release
+commit, which incorporates the benchmark's task-quality corrections. Our attrition is
+therefore not attributable to the task-specification errors those corrections
+addressed. Agent and simulated user are both Qwen2.5-7B-Instruct-AWQ under vLLM at temperature 0 with a
+200-step cap. Using one model on both sides fixes the user simulator so that
+differences are attributable to the agent's context. Ablation is an established
+practice on this benchmark; the original paper reports several.
+
+Six conditions: a full-context control and five ablations removing, respectively, the
+entire policy document; all policy sections except those governing the task's actions;
+all tool descriptions; conversation history beyond the last three messages; and
+policy-framing sentences in the system instruction. Each was implemented by wrapping
+the episode runner and verified by dumping and diffing the served chat-completion
+payload for every task. Each condition changed only what it claimed to
+(Appendix~\ref{app:verify}).
+
+The grid was 12 tasks $\times$ 2 seeds $\times$ 6 conditions, or 144 cells, of which
+138 episodes completed. The primary metric was \emph{grounding rate}: the fraction of
+identifier-valued tool-call arguments appearing in prior context rather than being
+fabricated. Fabricated identifiers are a documented failure mode on this benchmark
+family, and the original $\tau$-bench paper reports per-task rates of tool calls
+carrying non-existent user, product, order, or item IDs \citep{yao2024taubench}.
+Analysis was pre-registered before the grid ran: paired sign-flip permutation test,
+$\alpha = 0.05$, Holm correction across five conditions, and a 20-point falsification
+threshold matched to the grid's minimum detectable effect at 87\% power.
+
+\section{Definedness is condition-dependent}
+
+We chose grounding rate precisely to avoid the benchmark's own scoring gate. That gate
+is explicit in source: the evaluator returns a null result without reaching action
+checking whenever an episode does not terminate in one of two clean stop states. Its
+action-level score consequently exists for between 1 and 8 of 24 episodes per
+condition, or 4.2\% to 33.3\% (Appendix~\ref{app:acc}). One condition retains a single
+defined cell and therefore drops out of every paired contrast without appearing to.
+A further 21 episodes lost that score to a fault in the assertion judge on our side,
+again unevenly across conditions, from 1 to 6. That fault was ours, not the benchmark's,
+and touches only this secondary metric: the grounding rate is computed from transcripts
+and never invokes the evaluator. A measurement can go missing for reasons unrelated to
+agent behavior, and an aggregated score does not reveal it.
+
+Grounding rate avoids that gate but not the mechanism behind it. It is undefined when
+an episode makes no identifier-bearing tool calls, or ends before its grounding pool
+fills, and that too depends on condition:
+
+\begin{table}[h]
+\centering
+\caption{Episodes yielding a defined grounding rate, by condition.}
+\begin{tabular}{lrr}
+\toprule
+Condition & Defined (of 24) & Share \\
+\midrule
+Control (Full Context) & 22 & 91.7\% \\
+Policy Truncated & 22 & 91.7\% \\
+History Truncated & 21 & 87.5\% \\
+Schemas Stripped & 20 & 83.3\% \\
+System Minimized & 13 & 54.2\% \\
+Policy Removed & 12 & 50.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Half the policy-removed episodes produce no primary measurement. Choosing a metric
+outside the benchmark's scoring path reduced the problem without removing it: both
+metrics require the episode to get far enough to produce the thing being measured.
+
+The driver is visible in termination reasons, where clean terminations range from 4 of
+24 to 11 of 24 across conditions, a 29.1-point spread (Appendix~\ref{app:term}). Our
+pre-registered rule declared the primary confounded above a 10-point spread. It fired.
+
+Reward-design defects in this benchmark family are documented rather than hypothetical
+\citep{zhu2025abc}, as were task-specification errors in its predecessor's airline
+domain \citep{cuadron2026saber}, which prompted the corrections in the release we use.
+Our point is different and narrower: even a correctly
+specified reward creates a selection problem if whether it is computed depends on the
+manipulation. Nor is the practice hypothetical: recent work analyzing false success on
+this same benchmark discards trajectories with missing rewards as routine
+preprocessing \citep{advani2026silent}, a step that is standard, reasonable, and
+exactly the one whose innocuousness we question.
+
+We note that the error-terminated episodes are behavioral, not harness defects. The
+agent calls real tools with well-formed arguments containing fabricated identifiers
+until the error budget is exhausted. We verified that tool-call parsing was configured
+correctly and that every failing call was structurally valid.
+
+\section{The control moves}
+
+Definedness rates alone do not convey how much this matters. This does.
+
+Our test pairs each treatment cell with the control cell at the same (task, seed),
+which is standard and reduces task variance. But pairing retains only cells defined in
+\emph{both} arms, so each treatment induces a different retained subset of the control. The control never changed. Its measured value does:
+
+\begin{table}[h]
+\centering
+\caption{The control condition's own grounded rate, computed on each treatment's
+retained pairs. Its marginal rate over all 22 defined cells is 0.289.}
+\begin{tabular}{lrr}
+\toprule
+Paired Against & Pairs & Control's Grounded Rate \\
+\midrule
+Policy Removed & 11 & 0.096 \\
+Schemas Stripped & 18 & 0.198 \\
+Policy Truncated & 20 & 0.265 \\
+System Minimized & 11 & 0.299 \\
+History Truncated & 19 & 0.304 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Across pairings the control spans 21 points, larger than the 20-point effect the grid
+was designed to detect, and produced entirely by which cells survived.
+
+The consequence is a sign reversal. For the policy-removed condition, which cuts the
+served system prompt from 7{,}056 characters to 357:
+
+\begin{itemize}
+\item \textbf{Marginal:} ungrounded rate 71.7\% against the control's 71.1\%. Removing
+the policy document makes grounding \emph{0.6 points worse}.
+\item \textbf{Paired:} grounded rate 0.309 against the control's 0.096 on the 11 shared
+cells. Removing it makes grounding \emph{21.2 points better} (raw $p = 0.047$,
+Holm-adjusted $p = 0.235$).
+\end{itemize}
+
+Same episodes, same metric, opposite conclusion. Neither is a coding error. They
+describe different populations, and nothing in either table tells a reader which
+population they are looking at.
+
+For completeness: under the pre-registered test no condition is significant after
+correction, with a minimum adjusted $p$ of 0.235, and none crosses the 20-point
+threshold under worst-case or best-case imputation of lost episodes
+(Appendix~\ref{app:primary}). At 87\% power for 20 points we can exclude large effects
+and nothing smaller, and even that bounded null describes the observed subpopulation
+rather than the intended one.
+
+\section{Why this generalizes to data attribution}
+
+We ablated context, not training data, and do not claim otherwise. The transferable
+part is the validation loop, which is shared.
+
+Evaluating a contributive attribution method means predicting how a behavior changes
+when implicated data is removed, then removing it and checking. Where the behavioral
+measurement is defined for every input, such as a loss, a probability, or an accuracy
+on a fixed set, the loop is sound. As attribution moves toward agentic behaviors, which
+several of this workshop's motivating applications require, such as auditing what data
+caused an agent to take an action or tracing a tool-use failure to its provenance, the
+measured quantity becomes an episode-level outcome of exactly the gated kind we
+document.
+
+At that point the counterfactual check inherits the problem. Removing training data may
+change how often an agent's episodes terminate scoreably. The retained comparison set
+then differs between arms, the attribution method's predictions are scored against a
+shifting population, and the method can be credited or blamed for a selection effect.
+Nothing about the attribution method is wrong; the harness that validates it measures
+something other than what it reports.
+
+\section{Four things to report}
+
+The problem is cheap to detect. We propose that any ablation-based evaluation of
+agentic behavior report, alongside its headline table:
+
+\begin{enumerate}
+\item \textbf{Per-condition metric definedness.} How many episodes produced a value,
+not just the mean of those that did. A condition contributing half as many measurements
+as the control is itself a result.
+\item \textbf{Per-condition termination distribution.} Clean stops, step exhaustion,
+error exhaustion, context overflow, and crashes. This is where the selection
+originates.
+\item \textbf{Control stability under pairing.} If the analysis is paired, report the
+control's value on each retained subset. If it moves, the comparison is not what it
+appears to be.
+\item \textbf{Bounds rather than exclusions.} Report the primary with dropped episodes
+imputed at both extremes. If the bounds straddle the decision threshold, say so.
+\end{enumerate}
+
+These complement rather than duplicate existing guidance. The Agentic Benchmark
+Checklist \citep{zhu2025abc} asks whether a reward is \emph{correct}; our diagnostics
+ask whether it is \emph{defined}, and whether definedness depends on the manipulation
+under test. None require extra compute: all four derive from records a benchmark run
+already produces, and we report all four for our own grid.
+
+\section{Limitations}
+
+One 7B model, one benchmark domain, 12 tasks and 2 seeds. The mechanism is structural
+and we expect it to recur, but its magnitude here is specific to this setup.
+
+The confound applies to our own null. Section 4's result inherits the problem described
+in Section 3. We report it as evidence about the design, not about the hypothesis.
+
+Two deviations from our pre-registration, disclosed rather than smoothed over. The rule
+for scoring error-terminated episodes was written after pilot-level accuracy had been
+seen; it was derived by symmetry with an existing frozen rule, but it was not written
+blind. The per-cell aggregation function required by the frozen primary test did not
+exist when the plan was frozen, and was implemented after marginal point estimates had
+been seen; the metric, test, $\alpha$, and correction family were unchanged. The
+combined attrition statistic that triggered our confound rule was operationalized after
+the fact, so we publish raw per-condition termination counts for readers who prefer a
+different definition.
+
+Our truncated-policy condition selects sections using ground-truth actions. It
+upper-bounds what perfect retrieval would provide and does not simulate a retriever.
+
+
+\begin{thebibliography}{9}
+
+\bibitem{advani2026silent}
+L.~Advani.
+\newblock From confident closing to silent failure: Characterizing false success in
+LLM agents.
+\newblock \emph{arXiv:2606.09863}, 2026.
+
+\bibitem{barres2025tau2}
+V.~Barres, H.~Dong, S.~Ray, X.~Si, and K.~Narasimhan.
+\newblock $\tau^2$-bench: Evaluating conversational agents in a dual-control
+environment.
+\newblock \emph{arXiv:2506.07982}, 2025.
+
+\bibitem{cuadron2026saber}
+A.~Cuadron, P.~Yu, Y.~Liu, and A.~Gupta.
+\newblock SABER: Small actions, big errors. Safeguarding mutating steps in LLM agents.
+\newblock In \emph{ICLR 2026 Workshop on Memory for LLM-Based Agentic Systems}, 2026.
+
+\bibitem{elwert2014endogenous}
+F.~Elwert and C.~Winship.
+\newblock Endogenous selection bias: The problem of conditioning on a collider
+variable.
+\newblock \emph{Annual Review of Sociology}, 40:31--53, 2014.
+
+\bibitem{ilyas2022datamodels}
+A.~Ilyas, S.~M.~Park, L.~Engstrom, G.~Leclerc, and A.~Madry.
+\newblock Datamodels: Predicting predictions from training data.
+\newblock \emph{arXiv:2202.00622}, 2022.
+
+\bibitem{koh2017influence}
+P.~W.~Koh and P.~Liang.
+\newblock Understanding black-box predictions via influence functions.
+\newblock In \emph{ICML}, 2017.
+
+\bibitem{park2023trak}
+S.~M.~Park, K.~Georgiev, A.~Ilyas, G.~Leclerc, and A.~Madry.
+\newblock TRAK: Attributing model behavior at scale.
+\newblock In \emph{ICML}, volume 202 of \emph{PMLR}, pages 27074--27113, 2023.
+
+\bibitem{yao2024taubench}
+S.~Yao, N.~Shinn, P.~Razavi, and K.~Narasimhan.
+\newblock $\tau$-bench: A benchmark for tool-agent-user interaction in real-world
+domains.
+\newblock \emph{arXiv:2406.12045}, 2024.
+
+\bibitem{zhu2025abc}
+Y.~Zhu, T.~Jin, Y.~Pruksachatkun, A.~Zhang, S.~Liu, S.~Cui, S.~Kapoor, S.~Longpre,
+K.~Meng, R.~Weiss, F.~Barez, R.~Gupta, J.~Dhamala, J.~Merizian, M.~Giulianelli,
+H.~Coppock, C.~Ududec, J.~Sekhon, J.~Steinhardt, A.~Kellermann, S.~Schwettmann,
+M.~Zaharia, I.~Stoica, P.~Liang, and D.~Kang.
+\newblock Establishing best practices for building rigorous agentic benchmarks.
+\newblock \emph{arXiv:2507.02825}, 2025.
+
+\end{thebibliography}
+
+\appendix
+
+\section{Ablation verification}
+\label{app:verify}
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Served payload per condition, verified on all tasks by diffing against the
+control. Policy-truncated length varies by task.}
+\begin{tabular}{lrrrc}
+\toprule
+Condition & System Prompt (chars) & Tools & Tools w/ Descriptions & History Sent \\
+\midrule
+Full Context & 7056 & 16 & 16 & Full \\
+Policy Removed & 357 & 16 & 16 & Full \\
+Policy Truncated & 2311 to 4621 & 16 & 16 & Full \\
+Schemas Stripped & 7056 & 16 & 0 & Full \\
+History Truncated & 7056 & 16 & 16 & Last 3 \\
+System Minimized & 6913 & 16 & 16 & Full \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\section{Termination distribution}
+\label{app:term}
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Termination reason counts over all 144 cells. Crashes account for the 6
+episodes that did not complete.}
+\begin{tabular}{lrrrrr}
+\toprule
+Condition & Normal & Agent Error & Step Cap & Context Overflow & Crash \\
+\midrule
+Full Context & 11 & 9 & 3 & 0 & 1 \\
+Policy Removed & 11 & 7 & 4 & 0 & 2 \\
+Policy Truncated & 11 & 4 & 8 & 0 & 1 \\
+Schemas Stripped & 10 & 11 & 3 & 0 & 0 \\
+History Truncated & 5 & 17 & 2 & 0 & 0 \\
+System Minimized & 4 & 9 & 6 & 3 & 2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\section{Pre-registered primary test}
+\label{app:primary}
+
+Positive difference means the condition grounded worse than control.
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Paired sign-flip permutation test on grounded rate, Holm-corrected across five
+conditions.}
+\begin{tabular}{lrrrrrr}
+\toprule
+Condition & Pairs & Control & Treatment & Diff & Raw $p$ & Holm $p$ \\
+\midrule
+Policy Removed & 11 & 0.096 & 0.309 & $-0.212$ & 0.047 & 0.235 \\
+Policy Truncated & 20 & 0.265 & 0.240 & $+0.025$ & 0.816 & 1.000 \\
+Schemas Stripped & 18 & 0.198 & 0.261 & $-0.063$ & 0.485 & 1.000 \\
+History Truncated & 19 & 0.304 & 0.180 & $+0.123$ & 0.135 & 0.542 \\
+System Minimized & 11 & 0.299 & 0.208 & $+0.090$ & 0.517 & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Crash-exclusion bounds, given as change against control under worst-case and best-case
+imputation: policy removed $+3.4$ and $-6.6$; policy truncated $+1.4$ and $+1.4$;
+schemas stripped $+0.8$ and $+5.1$; history truncated $+7.8$ and $+12.2$; system
+minimized $+10.7$ and $-12.7$. No condition's bounds cross the 20-point threshold.
+
+\section{Action-level score definedness}
+\label{app:acc}
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Episodes yielding a defined action-level score, out of 24 per condition.
+``Not Reached'' covers episodes whose termination reason prevented action checking.
+``Evaluation Failed'' covers episodes lost to a fault in the assertion judge on our
+side. Counts derive from the evaluator note stored in each released record.}
+\begin{tabular}{lrrr}
+\toprule
+Condition & Scored & Not Reached & Evaluation Failed \\
+\midrule
+Policy Removed & 8 & 13 & 3 \\
+Policy Truncated & 8 & 13 & 3 \\
+Full Context & 7 & 13 & 4 \\
+Schemas Stripped & 4 & 14 & 6 \\
+System Minimized & 3 & 20 & 1 \\
+History Truncated & 1 & 19 & 4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Marginal grounding rates}
+
+Ungrounded argument rate, macro-averaged over episodes with a defined rate: full
+context 71.1\% ($n{=}22$), policy removed 71.7\% (12), policy truncated 72.6\% (22),
+schemas stripped 73.2\% (20), system minimized 76.6\% (13), history truncated 80.2\%
+(21). The agent fabricates roughly three of every four identifier arguments in every
+condition, including the control.
+
+\section{Power}
+
+Minimum detectable effect on grounding rate at 12 tasks and 2 seeds, by simulation with
+60 replicates per point: 5 points gives 0\% power, 10 points 8\%, 15 points 43\%, 20
+points 87\%, and 30 points 100\%. The 20-point threshold was set to match this curve
+before the grid ran.
+
+\section{Reproducibility}
+
+Benchmark pinned at the v1.0.1 release commit. Both models are Qwen2.5-7B-Instruct-AWQ under vLLM
+at temperature 0, with a 200-step cap, on two T4 GPUs, for roughly 16 GPU-hours across
+two sessions. All 144 episode records, the payload verification dump, and the analysis
+plan with its frozen and archived sections are available at
+\url{https://github.com/abhiprd2000/attrib-context-ablation}.
+
+\end{document}
